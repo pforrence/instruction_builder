@@ -59,7 +59,8 @@ def r_type(op, instr):
     while shamt is -1:
         shamt = printable_bin(input('Enter your shamt (0-31 decimal): '))
     print(shamt)    
-
+    print("funct: ")
+    print(funct_dict[instr])
     instr = op+rs+rt+rd+shamt+funct_dict[instr]
     print(instr)
     return instr
@@ -93,7 +94,6 @@ def j_type(op):
     return instr
 
 def main():
-	instructions_written = []
     instructions = []
     while True:
         instruction_name = input('Type \'break\' to break \nEnter your instruction name (sub, addi, j): ')
