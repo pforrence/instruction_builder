@@ -123,7 +123,7 @@ def main():
 
     with open(filename, yes) as f:
         for i in instructions:
-            f.write(i+"\n")
+            f.write("force INSTR_MemoryIn \""+i+"\"\n")
 main()
 
 # "add" : "000000", 
