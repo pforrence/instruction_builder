@@ -122,8 +122,12 @@ def main():
         yes = 'a'
 
     with open(filename, yes) as f:
+        f.write("restart -f\n")
+        f.write("do test/basic.do \n")
+        f.write("force -freeze clock 0 0, 1 {50 ns} -r 100\n")
         for i in instructions:
-            f.write("force INSTR_MemoryIn \""+i+"\"\n")
+            f.write("force INST_MemoryDataIn \""+i+"\"\nrun 100\n")
+
 main()
 
 # "add" : "000000", 
