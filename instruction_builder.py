@@ -17,7 +17,7 @@ funct_dict = {"add" : "100000", "addu" : "100001", "sub" : "100010", "subu" : "1
         "sll" : "000000", "srl" : "000010", "sra" : "000011", "sllv" : "000100", 
         "srlv" : "000110", "srav" : "000111", "slt" : "101010", "sltu" : "101011", 
         "clo" : "100001", "clz" : "100000"}
-
+extention = '.do'
 def printable_bin(string):
     if int(string) <= 31 and int(string) > -1:
         return "{0:05b}".format(int(string))
@@ -113,6 +113,17 @@ def main():
     print("\n\nHERE ARE YOUR INSTRUCTIONS:")
     for i in instructions:
         print(i)
+    filename = input('Filename: ')
+    if extention not in filename:
+        filename = filename + extention
+
+    yes = input('Append or write (A/w): ')
+    if yes is not 'w' and yes is not 'a':
+        yes = 'a'
+
+    with open(filename, yes) as f:
+        for i in instructions:
+            f.write(i+"\n")
 main()
 
 # "add" : "000000", 
